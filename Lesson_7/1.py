@@ -4,3 +4,30 @@
 исходный и отсортированный массивы. Сортировка должна быть реализована в
 виде функции. По возможности доработайте алгоритм (сделайте его умнее).
 """
+
+import random
+
+size = int(input('Введите длину массива: '))
+array = [random.randint(-100, 100) for i in range(size)]
+print (f'Исходный массив: {array}')
+
+def bubble_sort(array):
+    n = 1
+    while n < len(array):
+        sorted = True
+        for i in range(len(array) - n):
+            if array[i] < array[i + 1]:
+                array[i], array[i + 1] = array[i + 1], array[i]
+                sorted = False
+        if sorted == True:
+            break
+        n += 1
+    print(f'Массив, отсортированный по убыванию: {array}')
+
+bubble_sort(array)
+
+'''
+Введите длину массива: 10
+Исходный массив: [63, 39, -48, -41, 15, 17, -43, 12, -31, -21]
+Массив, отсортированный по убыванию: [63, 39, 17, 15, 12, -21, -31, -41, -43, -48]
+'''

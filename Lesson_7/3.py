@@ -6,3 +6,43 @@
 массива. Но если это слишком сложно, то используйте метод сортировки,
  который не рассматривался на уроках
 """
+
+import random
+
+m = int(input('Размер массив "2m + 1". Введите число m: '))
+size = 2 * m + 1
+array = [random.randint(1, 50) for i in range(size)]
+print (f'Исходный массив: {array}')
+
+def find_med(array):
+    rez = False
+    for j in array:
+        left = 0
+        right = 0
+        center = 0
+        for i in array:
+            if i < j:
+                left += 1
+            elif i > j:
+                right += 1
+            elif i == j:
+                center += 1
+        if left == right:
+            print(f'Медиана массива - {j}')
+            rez = True
+            break
+    if rez != True:
+        print('В массиве нет медианы.')
+
+find_med(array)
+
+'''
+Размер массив "2m + 1". Введите число m: 5
+Исходный массив: 
+[24, 36, 13, 26, 4, 29, 47, 21, 47, 41, 9]
+Медиана массива - 26
+
+Размер массив "2m + 1". Введите число m: 5
+Исходный массив: [26, 32, 26, 31, 25, 50, 9, 3, 37, 47, 1]
+В массиве нет медианы.
+'''
